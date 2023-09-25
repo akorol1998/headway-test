@@ -20,7 +20,7 @@ func main() {
 	if err != nil {
 		lg.Fatalf("failed to open db connection")
 	}
-	err = db.InitialSeed(dbConn, []string{db.CreateProvider, db.SeedProviderApplePay, db.SeedProviderGooglePay, db.SeedProviderPayPal, db.SeedProviderStripe}, lg)
+	err = db.InitialSeed(dbConn, []string{db.CreateProvider, db.SeedProviderApplePay, db.SeedProviderGooglePay, db.SeedProviderPayPal, db.SeedProviderStripe, db.SeedInvalidProvider}, lg)
 	if err != nil {
 		lg.Fatalf("failed to execute statements, error: %v", err)
 	}

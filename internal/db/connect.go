@@ -27,7 +27,6 @@ func InitialSeed(conn *sql.DB, stmnts []string, log *zap.SugaredLogger) error {
 		return nil
 	}
 	for _, stm := range stmnts {
-		log.Infof("executing stmnt: %v", stm)
 		if _, err := conn.Exec(stm); err != nil {
 			conn.Close()
 			return fmt.Errorf("failed to execute query: %v, error: %v", stm, err)
