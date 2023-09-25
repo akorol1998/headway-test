@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres:14.0-alpine
+    container_name: paymentdb
+    environment:
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=adminlol
+    ports:
+      - "5432:5432"
+    volumes:
+      - payment-pg-data:/var/lib/postgresql/data
+    command: ["postgres", "-c", "log_statement=all"]
+  app:
+    image: payment-api:latest
+    container_name: api
+    env_file:
+      - .env
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+volumes:
+  payment-pg-data:

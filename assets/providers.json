@@ -1,0 +1,6 @@
+{
+    "apple_pay": "https://apple-pay-gateway.apple.com",
+    "google_pay": "https://google.com/pay",
+    "pay_pal": "https://www.paypal.com/pay",
+    "stripe": "https://stripe.com/pay"
+}
